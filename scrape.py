@@ -373,8 +373,8 @@ def gather_metadata_for_language(language):
           
           book_row = rows[book_counter]
           if book_slug == 'official-declarations':
-            book_name = re.sub('[\dⅠ一፩ទ–—]+?\.?', '', book_row.select('td')[1].text).strip()
-            book_abbreviation = re.sub('[\dⅠ一፩ទ–—]+?\.?', '', book_row.select('td')[0].text).strip()
+            book_name = re.sub(r'[\dⅠ一፩ទ–—]+?\.?', '', book_row.select('td')[1].text).strip()
+            book_abbreviation = re.sub(r'[\dⅠ一፩ទ–—]+?\.?', '', book_row.select('td')[0].text).strip()
           else:
             book_name = book_row.select('td')[1].text.strip()
             book_abbreviation = book_row.select('td')[0].text.strip()
@@ -486,7 +486,7 @@ def gather_metadata_for_language(language):
           
           # Get the chapter name
           chapter_name = first_chapter_link.select_one('.title').text.strip()
-          chapter_name_without_numbers = re.sub('[\dⅠ一፩ទ–—]+?\.?', '', chapter_name).strip()
+          chapter_name_without_numbers = re.sub(r'[\dⅠ一፩ទ–—]+?\.?', '', chapter_name).strip()
           
           # Get the book name by looking for the preceding title
           book_name = first_chapter_link.find_previous(class_='label').text.strip()
@@ -531,7 +531,7 @@ def gather_metadata_for_language(language):
             first_chapter_link = table_of_contents.select_one('a.list-tile[href^="/study/scriptures/pgp/abr/fac-1"]')
             if first_chapter_link:
               chapter_name = first_chapter_link.select_one('.title').text.strip()
-              chapter_name_without_numbers = re.sub('[\dⅠ一፩ទ–—]+?\.?', '', chapter_name).strip()
+              chapter_name_without_numbers = re.sub(r'[\dⅠ一፩ទ–—]+?\.?', '', chapter_name).strip()
               facsimiles_section_name = first_chapter_link.find_previous(class_='label').text.strip()
               metadata_scriptures['languages'][bcp47_lang]['translatedNames']['facsimile'] = {
                 'name': chapter_name_without_numbers,
