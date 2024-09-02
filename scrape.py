@@ -21,7 +21,7 @@ from resources import resources, config
 VERSION = '2.1'
 
 # URL patterns
-languages_url = 'https://www.churchofjesuschrist.org/languages?lang=eng'
+languages_url = 'https://web.archive.org/web/20240115051124/https://www.churchofjesuschrist.org/languages?lang=eng'
 study_url = 'https://www.churchofjesuschrist.org/study{0}?lang={1}&mboxDisable=1'
 abbreviations_url = 'https://www.churchofjesuschrist.org/study/scriptures/quad/quad/abbreviations?lang={0}&mboxDisable=1'
 
